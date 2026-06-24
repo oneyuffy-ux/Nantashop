@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "artifacts/api-server/src/index.ts"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "artifacts/game-shop/dist/public/$1"
+    }
+  ]
+}
