@@ -1,7 +1,18 @@
 {
   "version": 2,
-  "buildCommand": "pnpm install && pnpm -r run build",
-  "outputDirectory": "artifacts/game-shop/dist/public",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "artifacts/game-shop/dist/public"
+      }
+    },
+    {
+      "src": "artifacts/api-server/src/index.ts",
+      "use": "@vercel/node"
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",
